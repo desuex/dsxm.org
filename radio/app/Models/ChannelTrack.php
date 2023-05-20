@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
  * @property int $channel_id
  * @property int $track_id
  * @property Carbon $start_time
+ * @property ?string $display_artist Denormalized field
+ * @property ?string $display_title Denormalized field
+ * @property int $duration
  */
 class ChannelTrack extends Model
 {
@@ -24,7 +27,10 @@ class ChannelTrack extends Model
         'id',
         'channel_id',
         'track_id',
-        'start_time'
+        'start_time',
+        'display_artist',
+        'display_title',
+        'duration'
     ];
 
     /**
@@ -39,7 +45,10 @@ class ChannelTrack extends Model
             $data[] = [
                 'channel_id'=>$channel['channel_id'],
                 'track_id' => $channel['track']['id'],
-                'start_time' => $channel['track']['start_time']
+                'start_time' => $channel['track']['start_time'],
+                'display_artist' => $channel['track']['display_artist'],
+                'display_title' => $channel['track']['display_title'],
+                'duration' => $channel['track']['duration']
             ];
         }
         return DB::table('channel_tracks')
