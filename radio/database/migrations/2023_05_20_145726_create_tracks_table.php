@@ -34,8 +34,6 @@ return new class extends Migration
             $table->string('asset_url')->nullable();
             $table->timestamps();
 
-
-
             $table->boolean('full_info')->default(false);
         });
     }

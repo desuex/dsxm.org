@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Facades\AudioAddict;
+use App\Models\ChannelTrack;
+use App\Models\Network;
 use Illuminate\Console\Command;
 
 class ParseCurrentTracks extends Command
@@ -19,14 +21,21 @@ class ParseCurrentTracks extends Command
      *
      * @var string
      */
-    protected $description = 'Get all current tracks from DI.FM';
+    protected $description = 'Get all current tracks from Audio Addict';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $tracks = AudioAddict::getCurrentlyPlaying(AudioAddict::DI_FM);
-        print_r($tracks[0]);
+        $networks = Network::all();
+        if (empty($networks)) {
+            $this->output->error('No available networks! Import networks first!');
+            return 1;
+        }
+        foreach($networks as $network) {
+            $tracks = AudioAddict::getCurrentlyPlaying($network->key);
+            ChannelTrack::import($tracks);
+        }
     }
 }

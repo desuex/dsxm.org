@@ -31,6 +31,7 @@ class ParseChannels extends Command
         $networks = Network::all();
         if (empty($networks)) {
             $this->output->error('No available networks! Import networks first!');
+            return 1;
         }
         foreach($networks as $network) {
             $channels = AudioAddict::getChannels($network->key);
