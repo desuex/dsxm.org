@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Facades\AudioAddict;
+use App\Models\Channel;
 use Illuminate\Console\Command;
 
 class ParseChannels extends Command
@@ -27,6 +28,8 @@ class ParseChannels extends Command
     public function handle()
     {
         $channels = AudioAddict::getChannels(AudioAddict::DI_FM);
-        dd($channels);
+        Channel::import($channels);
+        
+        
     }
 }

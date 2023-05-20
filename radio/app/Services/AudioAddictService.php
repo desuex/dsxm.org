@@ -59,4 +59,16 @@ class AudioAddictService
         // Return the track details
         return $artistDetails;
     }
+
+    public function getNetworks(): array
+    {
+        // Make a GET request to the API endpoint
+        $response = $this->httpClient->get("https://api.audioaddict.com/v1/networks");
+
+        // Get the response body as JSON
+        $networks = json_decode($response->getBody(), true);
+
+        // Return the track details
+        return $networks;
+    }
 }
