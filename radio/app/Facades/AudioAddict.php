@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Facade;
  * @method array getChannels(string $service = 'di')
  * @method array getTrackDetails(int $trackId, string $service = 'di')
  * @method array getArtistDetails(int $artistId, string $service = 'di')
+ * @method array getNetworks()
  */
 class AudioAddict extends Facade
 {
