@@ -51,11 +51,12 @@ class Channel extends Model
         'description'
     ];
 
-    public static function import($channels): void
+    public static function import($channels): int
     {
         foreach($channels as $data) {
 
             self::updateOrCreate(['id' => $data['id']], $data);
         }
+        return sizeof($channels);
     }
 }

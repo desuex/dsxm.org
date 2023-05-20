@@ -29,13 +29,15 @@ class ParseCurrentTracks extends Command
     public function handle()
     {
         $networks = Network::all();
-        if (empty($networks)) {
+        if ($networks->isEmpty()) {
             $this->output->error('No available networks! Import networks first!');
             return 1;
         }
+        $total = 0;
         foreach($networks as $network) {
             $tracks = AudioAddict::getCurrentlyPlaying($network->key);
-            ChannelTrack::import($tracks);
+            $total += ChannelTrack::import($tracks);
         }
+        $this->output->success("Saved $total tracks!");
     }
 }

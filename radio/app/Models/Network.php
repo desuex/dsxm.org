@@ -35,11 +35,12 @@ class Network extends Model
         'active_channel_count'
     ];
 
-    public static function import($networks): void
+    public static function import($networks): int
     {
         foreach($networks as $data) {
 
             self::updateOrCreate(['id' => $data['id']], $data);
         }
+        return sizeof($networks);
     }
 }

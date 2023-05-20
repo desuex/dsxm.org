@@ -28,6 +28,9 @@ class ParseNetworks extends Command
     public function handle()
     {
         $networks = AudioAddict::getNetworks();
-        Network::import($networks);
+        $count = Network::import($networks);
+
+        $this->output->success("Imported $count networks");
+        
     }
 }

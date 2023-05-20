@@ -18,7 +18,7 @@ class ChannelTrack extends Model
 {
     use HasFactory;
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'id',
@@ -27,7 +27,12 @@ class ChannelTrack extends Model
         'start_time'
     ];
 
-    public static function import($channels): void
+    /**
+     * Summary of import
+     * @param array $channels
+     * @return int affected rows
+     */
+    public static function import($channels): int
     {
         $data = [];
         foreach ($channels as $channel) {
@@ -37,7 +42,8 @@ class ChannelTrack extends Model
                 'start_time' => $channel['track']['start_time']
             ];
         }
-        DB::table('channel_tracks')
+        return DB::table('channel_tracks')
             ->insertOrIgnore($data);
+        
     }
 }
