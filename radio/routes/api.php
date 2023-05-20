@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\Channel;
+use App\Models\ChannelTrack;
 use App\Models\Network;
+use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +30,8 @@ Route::get('channels', function(){
 
 Route::get('networks', function(){
     return Network::all();
+});
+
+Route::get('tracks', function(){
+    return ChannelTrack::orderByDesc('id')->limit(300)->get();
 });
