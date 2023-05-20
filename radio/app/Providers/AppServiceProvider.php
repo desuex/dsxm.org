@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\AudioAddictService;
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton('audio-addict', function() {
-            return new AudioAddictService();
+            return new AudioAddictService(new Client());
         });
     }
 

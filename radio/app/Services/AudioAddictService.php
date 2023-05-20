@@ -1,5 +1,6 @@
 <?php
 namespace App\Services;
+use App\Facades\AudioAddict;
 use GuzzleHttp\Client;
 
 class AudioAddictService 
@@ -11,7 +12,7 @@ class AudioAddictService
         $this->httpClient = $httpClient;
     }
 
-    public function getCurrentlyPlaying(string $service = 'di'): array
+    public function getCurrentlyPlaying(string $service = AudioAddict::DI_FM): array
     {
         // Make a GET request to the API endpoint
         $response = $this->httpClient->get("https://api.audioaddict.com/v1/{$service}/currently_playing");
@@ -23,7 +24,7 @@ class AudioAddictService
         return $tracks;
     }
 
-    public function getChannels(string $service = 'di'): array
+    public function getChannels(string $service = AudioAddict::DI_FM): array
     {
         // Make a GET request to the API endpoint
         $response = $this->httpClient->get("https://api.audioaddict.com/v1/{$service}/channels");
@@ -35,7 +36,7 @@ class AudioAddictService
         return $channels;
     }
 
-    public function getTrackDetails(int $trackId, string $service = 'di'): array
+    public function getTrackDetails(int $trackId, string $service = AudioAddict::DI_FM): array
     {
         // Make a GET request to the API endpoint
         $response = $this->httpClient->get("https://api.audioaddict.com/v1/{$service}/tracks/{$trackId}");
@@ -47,7 +48,7 @@ class AudioAddictService
         return $trackDetails;
     }
 
-    public function getArtistDetails(int $artistId, string $service = 'di'): array
+    public function getArtistDetails(int $artistId, string $service = AudioAddict::DI_FM): array
     {
         // Make a GET request to the API endpoint
         $response = $this->httpClient->get("https://api.audioaddict.com/v1/{$service}/artists/{$artistId}");
@@ -58,6 +59,4 @@ class AudioAddictService
         // Return the track details
         return $artistDetails;
     }
-
-
 }

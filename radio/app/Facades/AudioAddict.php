@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Facade;
  */
 class AudioAddict extends Facade
 {
+    public const DI_FM = 'di';
+
     protected static function getFacadeAccessor()
     {
         return 'audio-addict';
