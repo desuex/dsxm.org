@@ -68,6 +68,6 @@ php artisan server
 ```
 9. Start the discovery service:
 ```shell
-php artisan schedule:run
+php artisan schedule:work
 ```
 10. You're good to go! Access the application by visiting http://localhost:8000 in your browser.

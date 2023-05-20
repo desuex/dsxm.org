@@ -12,7 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('app:parse-current-tracks')->everyMinute();
+        $schedule->command('app:parse-channels')->daily();
+        $schedule->command('app:parse-networks')->daily();
     }
 
     /**
