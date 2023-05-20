@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('channel_id');
             $table->integer('track_id');
-            $table->dateTime('played_at');
+            $table->dateTime('start_time');
+            $table->unique(['channel_id', 'track_id', 'start_time']);
         });
     }
 

@@ -55,7 +55,7 @@ class Channel extends Model
     {
         foreach($channels as $data) {
 
-            Channel::updateOrCreate(['id' => $data['id']], $data);
+            self::updateOrCreate(['id' => $data['id']], $data);
         }
     }
 }

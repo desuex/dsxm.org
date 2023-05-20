@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('network_id');
             $table->string('name');
-            $table->string('key')->unique();
+            $table->string('key');
             $table->string('ad_channels')->nullable();
             $table->string('description_short')->nullable();
             $table->text('description_long')->nullable();
@@ -29,8 +29,7 @@ return new class extends Migration
             $table->string('asset_url')->nullable();
             $table->string('banner_url')->nullable();
             $table->text('description')->nullable();
-            
-
+            $table->unique(['key', 'network_id']);
 
             
         });

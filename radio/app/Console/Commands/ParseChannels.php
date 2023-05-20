@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Facades\AudioAddict;
 use App\Models\Channel;
+use App\Models\Network;
 use Illuminate\Console\Command;
 
 class ParseChannels extends Command
@@ -20,16 +21,20 @@ class ParseChannels extends Command
      *
      * @var string
      */
-    protected $description = 'Update all channels from DI.FM';
+    protected $description = 'Update all channels from Audio Addict';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $channels = AudioAddict::getChannels(AudioAddict::DI_FM);
-        Channel::import($channels);
-        
-        
+        $networks = Network::all();
+        if (empty($networks)) {
+            $this->output->error('No available networks! Import networks first!');
+        }
+        foreach($networks as $network) {
+            $channels = AudioAddict::getChannels($network->key);
+            Channel::import($channels);
+        }
     }
 }
