@@ -68,3 +68,65 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+body {
+    background-color: #1f2937; /* Update the body background color to a lighter shade */
+    color: #ffffff; /* Set the text color to white */
+}
+
+.playlist {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #374151; /* Darker background color for table headers */
+    color: #ffffff;
+}
+
+.table td {
+    border-bottom: 1px solid #6b7280; /* Separator line between rows */
+}
+
+.track:last-child td {
+    border-bottom: none; /* Remove the separator line for the last track */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.last-played {
+    font-size: 12px;
+    color: #6b7280; /* Lighter text color for the "last played" text */
+    margin-top: 5px;
+}
+
+
+.table tbody tr:nth-child(odd) {
+    background-color: #1f2937; /* Background color for odd rows */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #374151; /* Background color for even rows */
+}

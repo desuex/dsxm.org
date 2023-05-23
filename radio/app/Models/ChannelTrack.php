@@ -53,6 +53,11 @@ class ChannelTrack extends Model
         }
         return DB::table('channel_tracks')
             ->insertOrIgnore($data);
-        
+
+    }
+
+    public function displayLength()
+    {
+        return Carbon::createFromTimestamp($this->duration)->format('i:s');
     }
 }

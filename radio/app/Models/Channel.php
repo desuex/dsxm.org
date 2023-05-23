@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $channel_director
  * @property string $ad_dfp_unit_id Useless for our purposes
  * @property bool $public Unused (?)
- * @property int $asset_id 
+ * @property int $asset_id
  * @property string $asset_url
  * @property string $banner_url
  * @property mixed $description
@@ -58,5 +58,13 @@ class Channel extends Model
             self::updateOrCreate(['id' => $data['id']], $data);
         }
         return sizeof($channels);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function lastTracks()
+    {
+        return ChannelTrack::where('channel_id',$this->id)->orderByDesc('id')->paginate(100);
     }
 }

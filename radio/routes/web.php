@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\NetworkController::class, 'index']);
 Route::get('/networks/{network}/channels', [\App\Http\Controllers\ChannelsController::class, 'index']);
+Route::get('/channels/{key}', [\App\Http\Controllers\TracksController::class, 'index']);
 
 
 Route::get('/register', function(){return view('auth.register');});
