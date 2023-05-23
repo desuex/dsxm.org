@@ -29,11 +29,11 @@
                     </td>
                     <td class="services">
                         <div class="service-icons">
-                            <img src="spotify-icon.png" alt="Spotify">
-                            <img src="apple-music-icon.png" alt="Apple Music">
-                            <img src="lastfm-icon.png" alt="Last.FM">
-                            <img src="soundcloud-icon.png" alt="SoundCloud">
-                            <img src="youtube-icon.png" alt="YouTube">
+                            <a href="https://open.spotify.com/search/{{$track->display_artist.' - '.$track->display_title}}"><img src="spotify-icon.png" alt="Spotify"></a>
+                            <a href="https://music.apple.com/us/search?term={{$track->display_artist.' - '.$track->display_title}}"><img src="apple-music-icon.png" alt="Apple Music"></a>
+                            <a href="https://www.youtube.com/results?search_query={{$track->display_artist.' - '.$track->display_title}}"><img src="youtube-icon.png" alt="YouTube"></a>
+                            <a href="https://www.last.fm/search?q={{$track->display_artist.' - '.$track->display_title}}"><img src="lastfm-icon.png" alt="Last.FM"></a>
+                            <a href="https://soundcloud.com/search?q={{$track->display_artist.' - '.$track->display_title}}"><img src="soundcloud-icon.png" alt="SoundCloud"></a>
                         </div>
                     </td>
                     <td class="last-played">{{$track->start_time}}</td>
