@@ -1,0 +1,70 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.tile {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 167px; /* Set a fixed width for the tiles */
+    height: 167px; /* Set a fixed height for the tiles */
+    background-size: 100%;
+}
+
+.tile::before {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* Set the aspect ratio to create square tiles */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tile .content {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.tile .content:hover {
+    opacity: 0.2;
+}
+.tile h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.tile::before {
+    /* Remove the background-size property */
+    background-position: center;
+    background-repeat: no-repeat;
+}

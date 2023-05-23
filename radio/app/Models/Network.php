@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Network extends Model
 {
-    use HasFactory;
+//    use HasFactory;
 
     protected $fillable = [
         'id',
@@ -37,10 +37,27 @@ class Network extends Model
 
     public static function import($networks): int
     {
-        foreach($networks as $data) {
+        foreach ($networks as $data) {
 
             self::updateOrCreate(['id' => $data['id']], $data);
         }
         return sizeof($networks);
+    }
+
+    /**
+     * Gets unique color for each network
+     * @return string color value for tailwind
+     */
+    public function color(): string
+    {
+        return match ($this->key) {
+            'di' => 'purple',
+            'radiotunes' => 'blue',
+            'jazzradio' => 'red',
+            'rockradio' => 'orange',
+            'classicalradio' => 'cyan',
+            'zenradio' => 'pink',
+            default => 'yellow',
+        };
     }
 }
