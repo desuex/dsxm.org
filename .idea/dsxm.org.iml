@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/radio/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/radio/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/radio/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/radio/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/radio/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/radio/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/radio/vendor/dflydev/dot-access-data" />
@@ -115,6 +116,9 @@
       <excludeFolder url="file://$MODULE_DIR$/radio/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/radio/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/radio/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/radio/storage/app" />
+      <excludeFolder url="file://$MODULE_DIR$/radio/storage/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/radio/vendor/jwilsson/spotify-web-api-php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
