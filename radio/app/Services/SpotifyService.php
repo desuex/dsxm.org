@@ -28,4 +28,9 @@ class SpotifyService
 
         return $session->getAccessToken($options);
     }
+
+    public function getApi()
+    {
+        return $this->api;
+    }
 }
